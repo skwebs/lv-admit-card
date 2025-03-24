@@ -6,6 +6,8 @@
 @section('content')
     <a href="{{ route('students.create') }}" class="mb-4 inline-block rounded bg-green-500 px-4 py-2 text-white">Add
         Student</a>
+    <a href="{{ route('students.admit-card.all') }}" class="mb-4 inline-block rounded bg-green-500 px-4 py-2 text-white">All
+        Students Admit Card</a>
 
     <table class="mt-4 w-full border-collapse border border-gray-300">
         <thead>
@@ -23,6 +25,8 @@
                     <td class="border border-gray-300 px-4 py-2">{{ $student->class }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ $student->roll_no }}</td>
                     <td class="flex space-x-2 border border-gray-300 px-4 py-2">
+                        <a href="{{ route('students.admit-card', $student->id) }}"
+                            class="rounded bg-green-700 px-2 py-1 text-white">Admit Card</a>
                         <a href="{{ route('students.edit', $student->id) }}"
                             class="rounded bg-yellow-500 px-2 py-1 text-white">Edit</a>
                         <form action="{{ route('students.destroy', $student->id) }}" method="POST"

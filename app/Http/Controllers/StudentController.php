@@ -58,4 +58,20 @@ class StudentController extends Controller
         $student->delete();
         return redirect()->route('students.index')->with('success', 'Student deleted successfully');
     }
+
+    // admit card
+    public function admitCard($id)
+    {
+        $student = Student::find($id);
+
+        return view('students.admit-card', compact('student'));
+    }
+
+    public function admitCardAll()
+    {
+        // echo "Student admit card";
+        $students = Student::all();
+        // dd($students);
+        return view('students.admit-card-all', compact('students'));
+    }
 }
